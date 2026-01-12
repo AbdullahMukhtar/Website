@@ -1,0 +1,62 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const canonical = 'https://verixaservices.com/services/mobile-app-development.html';
+---
+
+<ServiceLayout
+  title="Mobile App Development Company | iOS & Android | Verixa Services"
+  description="Verixa Services builds modern mobile apps for iOS and Android, including AI-enabled features, secure backends, and scalable architecture. Serving USA, Canada, UK, and Middle East clients."
+  canonical={canonical}
+  serviceName="Mobile App Development"
+  serviceType="Mobile Development"
+  heroHeadline="Mobile App Development"
+  heroSubhead="End-to-end mobile app delivery—from UX to deployment—with scalable APIs, secure authentication, and AI-enabled features when needed."
+  heroImageName="team"
+  heroImageAlt="Team collaborating in an office"
+  primaryCtaLabel="Plan Your Mobile App"
+  primaryCtaHref="/#contact"
+  secondaryCtaLabel="Custom Software"
+  secondaryCtaHref="/services/custom-software-development.html"
+  highlights={[
+    {
+      title: 'What we deliver',
+      items: [
+        'iOS and Android apps (cross-platform or native)',
+        'Backend APIs, admin panels, and integrations',
+        'AI-powered mobile experiences (chat, vision, document capture)',
+        'Performance, analytics, and release management'
+      ]
+    },
+    {
+      title: 'Best-fit projects',
+      items: [
+        'Customer-facing apps and marketplaces',
+        'Field ops and workflow apps',
+        'Fintech/health/enterprise apps needing reliability',
+        'MVPs that need a fast, scalable foundation'
+      ]
+    }
+  ]}
+  capabilities={[
+    { title: 'Product Design', text: 'UX/UI design, user flows, and prototypes aligned with business goals.' },
+    { title: 'Cross-platform Delivery', text: 'Ship faster with shared code where it makes sense.' },
+    { title: 'Backend + APIs', text: 'Secure APIs, admin tools, and integrations to support your app.' },
+    { title: 'Auth & Security', text: 'Secure authentication, data protection, and best practices.' },
+    { title: 'Observability', text: 'Analytics, crash reporting, monitoring, and performance tuning.' },
+    { title: 'AI Features', text: 'Add intelligent capabilities like chat, vision, and document capture.' }
+  ]}
+  approach={[
+    { title: 'Discovery', text: 'Clarify scope, target users, success metrics, and delivery plan.' },
+    { title: 'Design + prototype', text: 'Rapid prototypes to validate UX and reduce delivery risk.' },
+    { title: 'Build + integrate', text: 'Implement the app, backend, and integrations with quality standards.' },
+    { title: 'Launch + iterate', text: 'Release management, monitoring, and continuous improvement.' }
+  ]}
+  related={[
+    { href: '/services/custom-software-development.html', label: 'Custom Software' },
+    { href: '/services/ai-development.html', label: 'AI Development' },
+    { href: '/services/azure-ai.html', label: 'Azure AI' }
+  ]}
+/>
+
+

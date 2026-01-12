@@ -1,0 +1,62 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const canonical = 'https://verixaservices.com/services/computer-vision.html';
+---
+
+<ServiceLayout
+  title="Computer Vision Development | Image & Video AI | Verixa Services"
+  description="Verixa Services builds computer vision solutions: object detection, quality inspection, visual search, and video analytics. Karachi-based team serving USA, Canada, UK, and Middle East clients."
+  canonical={canonical}
+  serviceName="Computer Vision Solutions"
+  serviceType="Computer Vision"
+  heroHeadline="Computer Vision Solutions"
+  heroSubhead="Build systems that understand images and video—detection, classification, tracking, and analytics."
+  heroImageName="hero"
+  heroImageAlt="Laptop and code on screen"
+  primaryCtaLabel="Build a Vision Prototype"
+  primaryCtaHref="/#contact"
+  secondaryCtaLabel="Mobile App Development"
+  secondaryCtaHref="/services/mobile-app-development.html"
+  highlights={[
+    {
+      title: 'Use cases',
+      items: [
+        'Object detection and counting',
+        'Quality inspection and defect detection',
+        'Video analytics and event detection',
+        'Visual search and similarity matching'
+      ]
+    },
+    {
+      title: 'Delivery',
+      items: [
+        'Data strategy, labeling guidance, and evaluation',
+        'Model selection/training and edge/cloud deployment',
+        'Integration APIs + dashboards',
+        'Monitoring and continuous improvements'
+      ]
+    }
+  ]}
+  capabilities={[
+    { title: 'Detection & Tracking', text: 'Count, track, and detect objects in images and video.' },
+    { title: 'Inspection & QA', text: 'Defect detection, compliance checks, and quality inspection workflows.' },
+    { title: 'Similarity Search', text: 'Embedding-based visual search and de-duplication pipelines.' },
+    { title: 'Edge + Cloud Deployment', text: 'Deploy where it makes sense—devices, edge, or cloud.' },
+    { title: 'Data & Labeling Strategy', text: 'Guidance on sampling, labeling, evaluation, and iteration.' },
+    { title: 'Monitoring', text: 'Track drift, performance, and reliability over time.' }
+  ]}
+  approach={[
+    { title: 'Use-case definition', text: 'Clarify targets, constraints, camera setup, and success metrics.' },
+    { title: 'Dataset and evaluation', text: 'Build a representative dataset and measure baseline performance.' },
+    { title: 'Model + deployment', text: 'Train/select models and deploy with monitoring and performance targets.' },
+    { title: 'Iterate', text: 'Continuously improve with new data and real-world feedback.' }
+  ]}
+  related={[
+    { href: '/services/document-ai-ocr.html', label: 'Document AI & OCR' },
+    { href: '/services/ai-development.html', label: 'AI Development' },
+    { href: '/services/azure-ai.html', label: 'Azure AI' }
+  ]}
+/>
+
+

@@ -1,0 +1,62 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const canonical = 'https://verixaservices.com/services/custom-software-development.html';
+---
+
+<ServiceLayout
+  title="Custom Software Development Company | Web & Backend | Verixa Services"
+  description="Verixa Services builds custom software: web apps, APIs, enterprise systems, and integrations—often with AI features. Karachi-based team serving USA, Canada, UK, and Middle East clients."
+  canonical={canonical}
+  serviceName="Custom Software Development"
+  serviceType="Software Development"
+  heroHeadline="Custom Software Development"
+  heroSubhead="We build reliable, maintainable software—web apps, APIs, enterprise systems, and integrations—often enhanced with AI for automation and insights."
+  heroImageName="workspace"
+  heroImageAlt="Developers working together at a desk"
+  primaryCtaLabel="Request a Proposal"
+  primaryCtaHref="/#contact"
+  secondaryCtaLabel="AI Development"
+  secondaryCtaHref="/services/ai-development.html"
+  highlights={[
+    {
+      title: 'What we build',
+      items: [
+        'Web applications and admin portals',
+        'Backend APIs and microservices',
+        'System integrations and data pipelines',
+        'AI-enabled features (search, copilots, automation)'
+      ]
+    },
+    {
+      title: 'Engineering standards',
+      items: [
+        'Security, testing, and code quality practices',
+        'Performance, observability, and reliability',
+        'Cloud-ready architecture and CI/CD',
+        'Clear documentation and handover'
+      ]
+    }
+  ]}
+  capabilities={[
+    { title: 'Web Apps', text: 'Modern, responsive web apps built for maintainability and speed.' },
+    { title: 'APIs & Integrations', text: 'Secure APIs and integrations across your stack and vendors.' },
+    { title: 'Data Pipelines', text: 'Move and transform data reliably with monitoring and retries.' },
+    { title: 'Cloud Architecture', text: 'Deploy on cloud with sensible scalability and cost control.' },
+    { title: 'Quality Practices', text: 'Testing strategy, CI/CD, and predictable releases.' },
+    { title: 'AI Features', text: 'Add AI-powered search, copilots, and automation where it helps.' }
+  ]}
+  approach={[
+    { title: 'Discovery', text: 'Requirements, constraints, and a practical delivery plan.' },
+    { title: 'Build', text: 'Iterative delivery with demos and a focus on quality.' },
+    { title: 'Deploy', text: 'Secure deployment with monitoring and documentation.' },
+    { title: 'Support', text: 'Post-launch maintenance, improvements, and scaling.' }
+  ]}
+  related={[
+    { href: '/services/mobile-app-development.html', label: 'Mobile Apps' },
+    { href: '/services/azure-ai.html', label: 'Azure AI' },
+    { href: '/services/document-ai-ocr.html', label: 'Document AI & OCR' }
+  ]}
+/>
+
+

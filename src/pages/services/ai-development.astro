@@ -1,0 +1,62 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const canonical = 'https://verixaservices.com/services/ai-development.html';
+---
+
+<ServiceLayout
+  title="AI Development Company | AI & ML Solutions | Verixa Services"
+  description="Verixa Services builds AI/ML solutions: GPT/LLM integrations, custom model training, automation, and intelligent apps. Karachi-based team serving USA, Canada, UK, and Middle East clients."
+  canonical={canonical}
+  serviceName="AI & Machine Learning Development"
+  serviceType="AI Development"
+  heroHeadline="AI & Machine Learning Development"
+  heroSubhead="We design and build production-ready AI systems—LLM/GPT integrations, custom model training, and intelligent automation for real business outcomes."
+  heroImageName="hero"
+  heroImageAlt="Laptop and code on screen"
+  primaryCtaLabel="Talk to an AI Engineer"
+  primaryCtaHref="/#contact"
+  secondaryCtaLabel="Explore Azure AI"
+  secondaryCtaHref="/services/azure-ai.html"
+  highlights={[
+    {
+      title: 'What we build',
+      items: [
+        'LLM/GPT integrations (chat, copilots, RAG, workflow automation)',
+        'Custom model training, evaluation, and iteration',
+        'AI-enabled web and mobile applications',
+        'Automation for customer support, ops, and document workflows'
+      ]
+    },
+    {
+      title: 'Why Verixa',
+      items: [
+        'Business-first approach: measurable outcomes, not demos',
+        'Secure deployments and responsible AI practices',
+        'Experience delivering globally (USA, Canada, UK, Middle East)',
+        'Clear handover with documentation and maintainable code'
+      ]
+    }
+  ]}
+  capabilities={[
+    { title: 'RAG & Enterprise Search', text: 'Connect LLMs to your data with retrieval, ranking, and evaluation for reliability.' },
+    { title: 'Copilots & Workflow Automation', text: 'Automate repetitive tasks with guardrails, approvals, and auditability.' },
+    { title: 'Model Training & Tuning', text: 'Train/finetune with strong evaluation, safety checks, and performance targets.' },
+    { title: 'MLOps & Monitoring', text: 'Track quality, drift, latency, and cost—then improve continuously.' },
+    { title: 'API + App Integration', text: 'Ship AI features inside products with robust APIs and UX patterns.' },
+    { title: 'Security & Compliance', text: 'Data handling, access control, and best practices for enterprise environments.' }
+  ]}
+  approach={[
+    { title: 'Discovery & success metrics', text: 'Define scope, constraints, target KPIs, and a realistic delivery plan.' },
+    { title: 'Prototype for ROI', text: 'Build a thin slice to validate value quickly with real data.' },
+    { title: 'Production hardening', text: 'Security, reliability, performance, monitoring, and cost optimization.' },
+    { title: 'Iterate & scale', text: 'Ship improvements with measurable impact and ongoing support.' }
+  ]}
+  related={[
+    { href: '/services/azure-ai.html', label: 'Azure AI' },
+    { href: '/services/document-ai-ocr.html', label: 'Document AI & OCR' },
+    { href: '/services/computer-vision.html', label: 'Computer Vision' }
+  ]}
+/>
+
+

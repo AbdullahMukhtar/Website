@@ -1,0 +1,62 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const canonical = 'https://verixaservices.com/services/azure-ai.html';
+---
+
+<ServiceLayout
+  title="Azure AI Services & Solutions | Verixa Services"
+  description="Verixa Services delivers Azure AI solutions: Cognitive Services, Azure ML, LLM integrations, and cloud architecture. Karachi-based team serving USA, Canada, UK, and Middle East clients."
+  canonical={canonical}
+  serviceName="Azure AI & Cloud Solutions"
+  serviceType="Azure AI"
+  heroHeadline="Azure AI & Cloud Solutions"
+  heroSubhead="We help teams ship AI on Azure—from Azure Machine Learning to Cognitive Services and secure production deployments."
+  heroImageName="workspace"
+  heroImageAlt="Developers working together at a desk"
+  primaryCtaLabel="Discuss Your Azure AI Project"
+  primaryCtaHref="/#contact"
+  secondaryCtaLabel="Document AI & OCR"
+  secondaryCtaHref="/services/document-ai-ocr.html"
+  highlights={[
+    {
+      title: 'Capabilities',
+      items: [
+        'Azure Machine Learning (MLOps, model training, deployment)',
+        'Azure AI services (Vision, Language, Document Intelligence)',
+        'LLM solutions (RAG, enterprise search, copilots)',
+        'Cloud architecture, security, and monitoring'
+      ]
+    },
+    {
+      title: 'Delivery approach',
+      items: [
+        'Discovery & solution design',
+        'Prototype to validate ROI quickly',
+        'Production hardening (security, reliability, cost)',
+        'Continuous improvement with measurable KPIs'
+      ]
+    }
+  ]}
+  capabilities={[
+    { title: 'Azure ML (MLOps)', text: 'Train, track, and deploy models with reproducible pipelines and governance.' },
+    { title: 'Cognitive Services', text: 'Vision, language, and document capabilities integrated into your applications.' },
+    { title: 'Azure OpenAI Patterns', text: 'RAG, prompt engineering, guardrails, and evaluation for reliability.' },
+    { title: 'Security & Identity', text: 'Networking, RBAC, secrets management, and enterprise access patterns.' },
+    { title: 'Observability', text: 'Monitoring, logging, alerts, and quality tracking in production.' },
+    { title: 'Cost Optimization', text: 'Right-size infra and optimize inference/training costs.' }
+  ]}
+  approach={[
+    { title: 'Architecture & constraints', text: 'Define security, compliance, and operational constraints early.' },
+    { title: 'Build a validated prototype', text: 'Prove feasibility with real workloads and success criteria.' },
+    { title: 'Ship production workloads', text: 'Harden and deploy with monitoring, CI/CD, and SRE practices.' },
+    { title: 'Optimize and scale', text: 'Improve quality, latency, and cost over time.' }
+  ]}
+  related={[
+    { href: '/services/ai-development.html', label: 'AI Development' },
+    { href: '/services/computer-vision.html', label: 'Computer Vision' },
+    { href: '/services/custom-software-development.html', label: 'Custom Software' }
+  ]}
+/>
+
+

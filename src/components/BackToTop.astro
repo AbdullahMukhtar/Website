@@ -1,0 +1,32 @@
+<button
+  type="button"
+  aria-label="Back to top"
+  class="fixed bottom-5 right-5 hidden rounded-2xl bg-slate-900 px-4 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+  data-back-to-top
+>
+  ↑ Top
+</button>
+
+<script is:inline>
+  (() => {
+    const btn = document.querySelector('[data-back-to-top]');
+    if (!btn) return;
+
+    const prefersReduced =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function update() {
+      if (window.scrollY > 600) btn.classList.remove('hidden');
+      else btn.classList.add('hidden');
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    });
+  })();
+</script>
+
+

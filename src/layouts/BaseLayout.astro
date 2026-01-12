@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.astro';
+
+export type Props = {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  twitterCard?: 'summary' | 'summary_large_image';
+  themeColor?: string;
+  jsonLd?: unknown;
+};
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = 'https://verixaservices.com/logo.jpeg',
+  twitterCard = 'summary_large_image',
+  themeColor = '#2563eb',
+  jsonLd
+} = Astro.props;
+
+const resolvedCanonical = canonical ?? Astro.url.href;
+const jsonLdString = jsonLd ? JSON.stringify(jsonLd) : null;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    {description ? <meta name="description" content={description} /> : null}
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="author" content="Verixa Services" />
+    <meta name="theme-color" content={themeColor} />
+
+    <link rel="canonical" href={resolvedCanonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Verixa Services" />
+    <meta property="og:title" content={title} />
+    {description ? <meta property="og:description" content={description} /> : null}
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:title" content={title} />
+    {description ? <meta name="twitter:description" content={description} /> : null}
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/png" href="/logo.jpeg" />
+    <link rel="apple-touch-icon" href="/logo.jpeg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <slot name="head" />
+
+    {jsonLdString ? (
+      <script type="application/ld+json" set:html={jsonLdString} />
+    ) : null}
+  </head>
+  <body class="min-h-screen">
+    <Header />
+    <main><slot /></main>
+    <Footer />
+    <BackToTop />
+
+    <slot name="bodyEnd" />
+
+    <script is:inline>
+      (() => {
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) return;
+
+        const els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window) || els.length === 0) {
+          els.forEach((el) => el.classList.add('is-visible'));
+          return;
+        }
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+        );
+
+        els.forEach((el) => io.observe(el));
+      })();
+    </script>
+  </body>
+</html>
+
+

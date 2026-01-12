@@ -1,0 +1,62 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const canonical = 'https://verixaservices.com/services/document-ai-ocr.html';
+---
+
+<ServiceLayout
+  title="Document AI & OCR Services | Intelligent Document Processing | Verixa Services"
+  description="Automate document workflows with Document AI and OCR. Verixa Services builds intelligent document processing for invoices, receipts, forms, and PDFs—serving USA, Canada, UK, and Middle East clients."
+  canonical={canonical}
+  serviceName="Document AI & OCR"
+  serviceType="Intelligent Document Processing"
+  heroHeadline="Document AI & OCR"
+  heroSubhead="Turn PDFs and scanned documents into structured, validated data—fast, accurate, and ready for your systems."
+  heroImageName="team"
+  heroImageAlt="Team collaborating in an office"
+  primaryCtaLabel="Automate Document Workflows"
+  primaryCtaHref="/#contact"
+  secondaryCtaLabel="Computer Vision"
+  secondaryCtaHref="/services/computer-vision.html"
+  highlights={[
+    {
+      title: 'Use cases',
+      items: [
+        'Invoice, receipt, and PO processing',
+        'KYC/identity and form extraction',
+        'Contract and policy document parsing',
+        'Searchable archives and knowledge extraction'
+      ]
+    },
+    {
+      title: 'What you get',
+      items: [
+        'Extraction + validation rules for higher accuracy',
+        'Human-in-the-loop review workflows when needed',
+        'APIs and integrations into your ERP/CRM',
+        'Monitoring and continuous improvement'
+      ]
+    }
+  ]}
+  capabilities={[
+    { title: 'OCR + Layout Understanding', text: 'Robust text extraction and document structure parsing across formats.' },
+    { title: 'Field Extraction', text: 'Invoice lines, totals, dates, IDs, addresses—mapped to your schema.' },
+    { title: 'Validation & Rules', text: 'Improve accuracy with business rules, checks, and confidence thresholds.' },
+    { title: 'Human-in-the-loop', text: 'Review UI/workflow for exceptions and continuous learning.' },
+    { title: 'Integrations', text: 'Ship data into ERP/CRM, storage, and downstream systems via APIs.' },
+    { title: 'Monitoring', text: 'Track accuracy, throughput, and drift to keep performance stable.' }
+  ]}
+  approach={[
+    { title: 'Document samples & schema', text: 'Collect representative samples and define the target output schema.' },
+    { title: 'Prototype + evaluation', text: 'Measure accuracy and iterate quickly with validation rules.' },
+    { title: 'Production workflow', text: 'Queueing, retries, review flows, and integrations.' },
+    { title: 'Optimize & maintain', text: 'Continuously improve accuracy and handle new templates.' }
+  ]}
+  related={[
+    { href: '/services/azure-ai.html', label: 'Azure AI' },
+    { href: '/services/ai-development.html', label: 'AI Development' },
+    { href: '/services/custom-software-development.html', label: 'Custom Software' }
+  ]}
+/>
+
+

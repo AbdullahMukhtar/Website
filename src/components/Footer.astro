@@ -1,0 +1,63 @@
+---
+const serviceLinks = [
+  { href: '/services/ai-development.html', label: 'AI & ML Development' },
+  { href: '/services/document-ai-ocr.html', label: 'Document AI & OCR' },
+  { href: '/services/computer-vision.html', label: 'Computer Vision' },
+  { href: '/services/azure-ai.html', label: 'Azure AI Solutions' },
+  { href: '/services/mobile-app-development.html', label: 'Mobile App Development' },
+  { href: '/services/custom-software-development.html', label: 'Custom Software' }
+];
+---
+
+<footer class="mt-20 border-t border-slate-200 bg-slate-950 text-white">
+  <div class="container-page py-14">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3">
+          <img src="/logo.svg" alt="Verixa Services Logo" class="h-10 w-auto" loading="lazy" />
+          <div class="text-lg font-extrabold">Verixa Services</div>
+        </div>
+        <p class="mt-4 max-w-xl text-sm leading-relaxed text-slate-200">
+          AI-powered technology solutions for modern businesses. We transform ideas into intelligent digital experiences with
+          cutting-edge AI and software engineering.
+        </p>
+      </div>
+
+      <div>
+        <div class="text-sm font-bold text-white">Quick Links</div>
+        <div class="mt-4 grid gap-2 text-sm">
+          <a class="text-slate-200 no-underline hover:text-white" href="/#about">About</a>
+          <a class="text-slate-200 no-underline hover:text-white" href="/#services">Services</a>
+          <a class="text-slate-200 no-underline hover:text-white" href="/#contact">Contact</a>
+          <a
+            class="text-slate-200 no-underline hover:text-white"
+            href="https://www.linkedin.com/company/verixa-services"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a class="text-slate-200 no-underline hover:text-white" href="/privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-sm font-bold text-white">Services</div>
+        <div class="mt-4 grid gap-2 text-sm">
+          {serviceLinks.map((l) => (
+            <a class="text-slate-200 no-underline hover:text-white" href={l.href}>{l.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-xs text-slate-300 sm:flex-row">
+      <div>© {new Date().getFullYear()} Verixa Services. All rights reserved.</div>
+      <div>
+        <a class="text-slate-300 no-underline hover:text-white" href="mailto:sales@verixaservices.com">sales@verixaservices.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
