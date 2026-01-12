@@ -8,8 +8,13 @@ export type Props = {
   title: string;
   description?: string;
   canonical?: string;
+  robots?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogType?: 'website' | 'article';
   twitterCard?: 'summary' | 'summary_large_image';
+  twitterSite?: string;
+  twitterCreator?: string;
   themeColor?: string;
   jsonLd?: unknown;
 };
@@ -18,14 +23,82 @@ const {
   title,
   description,
   canonical,
+  robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
   ogImage = 'https://verixaservices.com/logo.jpeg',
+  ogImageAlt,
+  ogType = 'website',
   twitterCard = 'summary_large_image',
+  twitterSite,
+  twitterCreator,
   themeColor = '#2563eb',
   jsonLd
 } = Astro.props;
 
-const resolvedCanonical = canonical ?? Astro.url.href;
-const jsonLdString = jsonLd ? JSON.stringify(jsonLd) : null;
+const resolvedCanonical =
+  canonical ??
+  (Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href);
+
+const resolvedDescription =
+  description ??
+  'AI-powered technology solutions: AI/ML, Azure AI, document AI/OCR, computer vision, mobile apps, and custom software.';
+
+function isObject(value: unknown): value is Record<string, any> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function mergeJsonLd(defaultLd: unknown, pageLd: unknown): unknown {
+  if (!pageLd) return defaultLd;
+  if (!isObject(defaultLd) || !isObject(pageLd)) return pageLd;
+
+  const defaultGraph = Array.isArray(defaultLd['@graph']) ? defaultLd['@graph'] : null;
+  const pageGraph = Array.isArray(pageLd['@graph']) ? pageLd['@graph'] : null;
+  if (!defaultGraph || !pageGraph) return pageLd;
+
+  const merged = [...defaultGraph, ...pageGraph];
+  const byId = new Map<string, any>();
+  const withoutId: any[] = [];
+
+  for (const node of merged) {
+    const id = isObject(node) ? (typeof node['@id'] === 'string' ? node['@id'] : null) : null;
+    if (id) byId.set(id, node);
+    else withoutId.push(node);
+  }
+
+  return { ...defaultLd, ...pageLd, '@graph': [...byId.values(), ...withoutId] };
+}
+
+const defaultJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://verixaservices.com/#organization',
+      name: 'Verixa Services',
+      url: 'https://verixaservices.com/',
+      logo: 'https://verixaservices.com/logo.jpeg',
+      email: 'sales@verixaservices.com'
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://verixaservices.com/#website',
+      url: 'https://verixaservices.com/',
+      name: 'Verixa Services',
+      publisher: { '@id': 'https://verixaservices.com/#organization' }
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${resolvedCanonical}#webpage`,
+      url: resolvedCanonical,
+      name: title,
+      description: resolvedDescription,
+      isPartOf: { '@id': 'https://verixaservices.com/#website' },
+      about: { '@id': 'https://verixaservices.com/#organization' }
+    }
+  ]
+};
+
+const mergedJsonLd = mergeJsonLd(defaultJsonLd, jsonLd);
+const jsonLdString = mergedJsonLd ? JSON.stringify(mergedJsonLd) : null;
 ---
 <!doctype html>
 <html lang="en">
@@ -34,23 +107,28 @@ const jsonLdString = jsonLd ? JSON.stringify(jsonLd) : null;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>{title}</title>
-    {description ? <meta name="description" content={description} /> : null}
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="description" content={resolvedDescription} />
+    <meta name="robots" content={robots} />
     <meta name="author" content="Verixa Services" />
     <meta name="theme-color" content={themeColor} />
 
     <link rel="canonical" href={resolvedCanonical} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Verixa Services" />
     <meta property="og:title" content={title} />
-    {description ? <meta property="og:description" content={description} /> : null}
+    <meta property="og:description" content={resolvedDescription} />
     <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={ogImageAlt ?? title} />
 
     <meta name="twitter:card" content={twitterCard} />
+    {twitterSite ? <meta name="twitter:site" content={twitterSite} /> : null}
+    {twitterCreator ? <meta name="twitter:creator" content={twitterCreator} /> : null}
     <meta name="twitter:title" content={title} />
-    {description ? <meta name="twitter:description" content={description} /> : null}
+    <meta name="twitter:description" content={resolvedDescription} />
+    <meta name="twitter:url" content={resolvedCanonical} />
     <meta name="twitter:image" content={ogImage} />
 
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />

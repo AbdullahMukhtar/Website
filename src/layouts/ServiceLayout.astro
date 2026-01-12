@@ -45,20 +45,30 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'Organization',
-      '@id': 'https://verixaservices.com/#organization',
-      name: 'Verixa Services',
-      url: 'https://verixaservices.com/',
-      logo: 'https://verixaservices.com/logo.jpeg',
-      email: 'sales@verixaservices.com'
-    },
-    {
       '@type': 'Service',
       '@id': `${canonical}#service`,
       name: serviceName,
       serviceType,
       provider: { '@id': 'https://verixaservices.com/#organization' },
       areaServed: ['PK', 'US', 'CA', 'GB', 'AE', 'SA', 'QA', 'OM', 'KW', 'BH']
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${canonical}#breadcrumbs`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://verixaservices.com/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: serviceName,
+          item: canonical
+        }
+      ]
     }
   ]
 };
