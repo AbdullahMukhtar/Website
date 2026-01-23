@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { getAllSlugs } from '../data/case-studies';
 
 type SitemapEntry = {
   path: string;
@@ -6,15 +7,27 @@ type SitemapEntry = {
   priority: number;
 };
 
+const caseStudySlugs = getAllSlugs();
+
 const ENTRIES: SitemapEntry[] = [
   { path: '/', changefreq: 'monthly', priority: 1.0 },
+  { path: '/about.html', changefreq: 'monthly', priority: 0.8 },
+  { path: '/portfolio.html', changefreq: 'weekly', priority: 0.9 },
+  { path: '/karachi-ai-development.html', changefreq: 'monthly', priority: 0.8 },
+  { path: '/pakistan-software-house.html', changefreq: 'monthly', priority: 0.8 },
+  { path: '/middle-east-ai-services.html', changefreq: 'monthly', priority: 0.8 },
   { path: '/privacy-policy.html', changefreq: 'yearly', priority: 0.3 },
   { path: '/services/ai-development.html', changefreq: 'monthly', priority: 0.7 },
   { path: '/services/azure-ai.html', changefreq: 'monthly', priority: 0.7 },
   { path: '/services/document-ai-ocr.html', changefreq: 'monthly', priority: 0.7 },
   { path: '/services/computer-vision.html', changefreq: 'monthly', priority: 0.7 },
   { path: '/services/mobile-app-development.html', changefreq: 'monthly', priority: 0.7 },
-  { path: '/services/custom-software-development.html', changefreq: 'monthly', priority: 0.7 }
+  { path: '/services/custom-software-development.html', changefreq: 'monthly', priority: 0.7 },
+  ...caseStudySlugs.map((slug) => ({
+    path: `/case-studies/${slug}.html`,
+    changefreq: 'monthly' as const,
+    priority: 0.6
+  }))
 ];
 
 function escapeXml(value: string) {

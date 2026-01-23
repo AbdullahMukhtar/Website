@@ -1,0 +1,358 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = 'AI-Powered Software House in Pakistan | Verixa Services - Custom Development & AI Solutions';
+const description =
+  'Leading AI-powered software house in Pakistan offering custom software development, AI/ML solutions, Azure AI, mobile apps, and web development. Serving clients in USA, Canada, UK, Middle East. 100+ projects delivered.';
+
+const canonical = 'https://verixaservices.com/pakistan-software-house.html';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Verixa Services - Pakistan Software House',
+  description: 'AI-powered software house in Pakistan specializing in custom development and AI solutions',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Karachi',
+    addressRegion: 'Sindh',
+    addressCountry: 'Pakistan'
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Pakistan'
+  }
+};
+
+const breadcrumbs = [{ label: 'Pakistan Software House', href: '/pakistan-software-house.html' }];
+
+const faqItems = [
+  {
+    question: 'Why outsource to a Pakistan software house?',
+    answer:
+      'Pakistan software houses offer 40-60% cost savings, English-proficient developers, strong technical education, experience with international clients, favorable time zones for US/Europe/Middle East collaboration, and government support for IT exports. Pakistan IT industry generates $2.6B+ annually.'
+  },
+  {
+    question: 'What services do Pakistan software houses provide?',
+    answer:
+      'Pakistan software houses offer custom software development, AI and machine learning, mobile app development, web development, Azure and cloud solutions, enterprise software, quality assurance, UI/UX design, DevOps, and ongoing support and maintenance.'
+  },
+  {
+    question: 'Is Pakistan a reliable destination for software development?',
+    answer:
+      'Yes! Pakistan has a mature IT industry with 2,000+ software houses, PASHA (Pakistan Software Houses Association) certification standards, ISO certified companies, strong data protection laws, and proven track record with Fortune 500 companies. Many Pakistani software houses have 10-20+ years of experience.'
+  },
+  {
+    question: 'How to choose the right software house in Pakistan?',
+    answer:
+      'Look for: proven portfolio, client testimonials, technical expertise in your required stack, communication skills, project management methodology, IP protection agreements, transparent pricing, and membership in PASHA or PSEB. Verixa Services checks all these boxes with 100+ successful projects.'
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="container-page py-12">
+    <Breadcrumbs items={breadcrumbs} />
+  </section>
+
+  <section class="container-page pb-16">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal">
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+          Leading AI-Powered Software House in Pakistan
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-600">
+          Verixa Services is a premier software house in Pakistan, specializing in AI-powered solutions, custom software development,
+          and digital transformation. Based in Karachi, we serve businesses across Pakistan and internationally in USA, Canada, UK,
+          and Middle East with world-class technology solutions at competitive prices.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-10 lg:grid-cols-2">
+        <div class="reveal">
+          <h2 class="text-3xl font-extrabold text-slate-900">Why Choose a Pakistan Software House?</h2>
+          <p class="mt-4 text-slate-600">
+            Pakistan has emerged as a leading destination for software development outsourcing, offering the perfect blend of cost
+            efficiency, technical talent, and quality delivery.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            {
+              [
+                {
+                  title: 'Exceptional Cost-Value Ratio',
+                  description:
+                    '40-60% lower development costs than US, UK, or Western Europe while maintaining international quality standards. Best value for investment in software development.',
+                  icon: '💰'
+                },
+                {
+                  title: 'Highly Skilled Workforce',
+                  description:
+                    '500,000+ tech professionals, top universities producing 25,000+ IT graduates annually, strong foundation in computer science, mathematics, and engineering.',
+                  icon: '🎓'
+                },
+                {
+                  title: 'English Proficiency',
+                  description:
+                    'English is the official business language in Pakistan. Excellent communication skills, cultural understanding of Western business practices, no language barriers.',
+                  icon: '💬'
+                },
+                {
+                  title: 'Time Zone Advantage',
+                  description:
+                    'PKT (UTC+5) offers overlap with Europe morning, Middle East business hours, and manageable time difference with USA for meetings and collaboration.',
+                  icon: '🌐'
+                },
+                {
+                  title: 'Government Support',
+                  description:
+                    'Pakistan government actively supports IT exports with tax incentives, infrastructure development, and initiatives to grow the tech ecosystem. IT exports target: $15B by 2030.',
+                  icon: '🏛️'
+                },
+                {
+                  title: 'Proven Track Record',
+                  description:
+                    'Pakistan software houses have delivered projects for Fortune 500 companies, international organizations, and governments worldwide for over 20 years.',
+                  icon: '⭐'
+                }
+              ].map((item) => (
+                <div class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <div class="text-3xl" aria-hidden="true">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div class="text-lg font-extrabold text-slate-900">{item.title}</div>
+                    <p class="mt-1 text-sm text-slate-600">{item.description}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="reveal space-y-6">
+          <div class="rounded-2xl border border-brand-200 bg-brand-50 p-8">
+            <h3 class="text-2xl font-extrabold text-slate-900">Our Software Development Services</h3>
+
+            <div class="mt-6 space-y-3">
+              {
+                [
+                  'AI & Machine Learning Development',
+                  'Azure AI & Cloud Solutions',
+                  'Custom Software Development',
+                  'Mobile App Development (iOS/Android)',
+                  'Web Application Development',
+                  'Enterprise Software Solutions',
+                  'Document AI & OCR',
+                  'Computer Vision Solutions',
+                  'E-commerce Development',
+                  'API Development & Integration',
+                  'Quality Assurance & Testing',
+                  'DevOps & Cloud Infrastructure'
+                ].map((service) => (
+                  <div class="flex items-center gap-3 text-slate-700">
+                    <span class="text-brand-600">✓</span>
+                    <span class="font-semibold">{service}</span>
+                  </div>
+                ))
+              }
+            </div>
+
+            <a href="/#contact" class="btn-primary mt-8 w-full text-center">
+              Request Quote
+            </a>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h4 class="text-lg font-extrabold text-slate-900">Pakistan IT Industry Facts</h4>
+            <div class="mt-4 space-y-3 text-sm text-slate-600">
+              <div class="flex justify-between border-b border-slate-200 pb-2">
+                <span>IT Exports</span>
+                <span class="font-bold text-slate-900">$2.6B+ annually</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-200 pb-2">
+                <span>Software Houses</span>
+                <span class="font-bold text-slate-900">2,000+</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-200 pb-2">
+                <span>IT Professionals</span>
+                <span class="font-bold text-slate-900">500,000+</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-200 pb-2">
+                <span>Annual IT Graduates</span>
+                <span class="font-bold text-slate-900">25,000+</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Cost Savings</span>
+                <span class="font-bold text-brand-700">40-60%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal text-center">
+        <h2 class="text-3xl font-extrabold text-slate-900">Industries We Serve in Pakistan</h2>
+        <p class="mt-4 text-slate-600">
+          Delivering tailored software solutions for diverse industries across Pakistan and internationally.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          [
+            {
+              industry: 'Banking & Finance',
+              description:
+                'Digital banking, FinTech solutions, payment gateways, fraud detection, core banking systems for Pakistani and international financial institutions.',
+              icon: '🏦'
+            },
+            {
+              industry: 'Healthcare',
+              description:
+                'Hospital management systems, telemedicine platforms, medical AI, patient portals, pharmacy management for healthcare sector.',
+              icon: '🏥'
+            },
+            {
+              industry: 'E-commerce & Retail',
+              description:
+                'Online marketplaces, inventory management, POS systems, order management, customer analytics for retail businesses.',
+              icon: '🛒'
+            },
+            {
+              industry: 'Education',
+              description:
+                'Learning management systems, online education platforms, student information systems, e-learning solutions for EdTech companies.',
+              icon: '📚'
+            },
+            {
+              industry: 'Manufacturing',
+              description:
+                'ERP systems, supply chain management, quality control, production planning, inventory tracking for manufacturing sector.',
+              icon: '🏭'
+            },
+            {
+              industry: 'Real Estate',
+              description:
+                'Property management systems, real estate portals, CRM solutions, virtual tours, document management for PropTech.',
+              icon: '🏘️'
+            },
+            {
+              industry: 'Logistics & Transportation',
+              description:
+                'Fleet management, route optimization, warehouse management, shipment tracking, delivery management systems.',
+              icon: '🚚'
+            },
+            {
+              industry: 'Government & Public Sector',
+              description:
+                'E-governance solutions, citizen portals, document management, process automation for government departments.',
+              icon: '🏛️'
+            },
+            {
+              industry: 'Telecommunications',
+              description:
+                'Billing systems, customer management, network monitoring, mobile applications for telecom companies.',
+              icon: '📡'
+            }
+          ].map((item) => (
+            <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-brand-200 hover:shadow-soft">
+              <div class="text-3xl" aria-hidden="true">
+                {item.icon}
+              </div>
+              <h3 class="mt-4 text-lg font-extrabold text-slate-900">{item.industry}</h3>
+              <p class="mt-2 text-sm text-slate-600">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal text-center">
+        <h2 class="text-3xl font-extrabold text-slate-900">Our Development Approach</h2>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {
+          [
+            {
+              phase: 'Discovery',
+              description:
+                'Requirements gathering, feasibility analysis, technical architecture planning, and detailed project roadmap.',
+              icon: '🔍'
+            },
+            {
+              phase: 'Development',
+              description:
+                'Agile methodology, iterative development, regular deliverables, code reviews, and quality assurance throughout.',
+              icon: '⚙️'
+            },
+            {
+              phase: 'Testing',
+              description:
+                'Comprehensive testing including unit, integration, performance, security, and user acceptance testing.',
+              icon: '✅'
+            },
+            {
+              phase: 'Deployment',
+              description:
+                'Production deployment, monitoring setup, documentation, training, and ongoing support and maintenance.',
+              icon: '🚀'
+            }
+          ].map((item) => (
+            <div class="reveal text-center rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div class="text-4xl" aria-hidden="true">
+                {item.icon}
+              </div>
+              <h3 class="mt-4 text-lg font-extrabold text-slate-900">{item.phase}</h3>
+              <p class="mt-2 text-sm text-slate-600">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="card p-8 sm:p-10">
+      <FAQ items={faqItems} title="Frequently Asked Questions About Pakistan Software Houses" />
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="card bg-gradient-to-r from-brand-600 to-brand-700 p-8 text-white sm:p-12">
+      <div class="reveal text-center">
+        <h2 class="text-3xl font-extrabold sm:text-4xl">Partner with Pakistan's Leading Software House</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-white/90">
+          Experience the perfect combination of quality, expertise, and value. Get a free consultation and discover how Verixa
+          Services can accelerate your digital transformation.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="/#contact"
+            class="rounded-2xl bg-white px-6 py-3 font-bold text-brand-700 no-underline transition hover:bg-slate-50"
+          >
+            Start Your Project
+          </a>
+          <a
+            href="/portfolio.html"
+            class="rounded-2xl border-2 border-white bg-transparent px-6 py-3 font-bold text-white no-underline transition hover:bg-white/10"
+          >
+            View Portfolio
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+

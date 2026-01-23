@@ -17,6 +17,8 @@ export type Props = {
   twitterCreator?: string;
   themeColor?: string;
   jsonLd?: unknown;
+  publishedTime?: string;
+  modifiedTime?: string;
 };
 
 const {
@@ -31,7 +33,9 @@ const {
   twitterSite,
   twitterCreator,
   themeColor = '#2563eb',
-  jsonLd
+  jsonLd,
+  publishedTime,
+  modifiedTime
 } = Astro.props;
 
 const resolvedCanonical =
@@ -111,8 +115,24 @@ const jsonLdString = mergedJsonLd ? JSON.stringify(mergedJsonLd) : null;
     <meta name="robots" content={robots} />
     <meta name="author" content="Verixa Services" />
     <meta name="theme-color" content={themeColor} />
+    
+    <!-- Geographic meta tags for local SEO -->
+    <meta name="geo.region" content="PK-SD" />
+    <meta name="geo.placename" content="Karachi" />
+    <meta name="geo.position" content="24.8607;67.0011" />
+    <meta name="ICBM" content="24.8607, 67.0011" />
 
     <link rel="canonical" href={resolvedCanonical} />
+    
+    <!-- Hreflang tags for international targeting -->
+    <link rel="alternate" hreflang="en" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="en-US" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="en-GB" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="en-CA" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="en-AE" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="en-SA" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="en-PK" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="x-default" href={resolvedCanonical} />
 
     <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="en_US" />
@@ -121,7 +141,11 @@ const jsonLdString = mergedJsonLd ? JSON.stringify(mergedJsonLd) : null;
     <meta property="og:description" content={resolvedDescription} />
     <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={ogImageAlt ?? title} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
     <meta name="twitter:card" content={twitterCard} />
     {twitterSite ? <meta name="twitter:site" content={twitterSite} /> : null}

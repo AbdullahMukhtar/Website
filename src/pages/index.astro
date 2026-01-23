@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQ from '../components/FAQ.astro';
 
-const title = 'Verixa Services | AI Development, Azure AI, Document AI & Custom Software';
+const title = 'AI Development Company Karachi, Pakistan | Verixa Services - Azure AI, Machine Learning & Custom Software';
 const description =
-  'Verixa Services is an AI-powered software house in Karachi, Pakistan delivering AI/ML, Azure AI, document AI/OCR, computer vision, mobile apps, and custom software for clients in the USA, Canada, UK, and the Middle East.';
+  'Leading AI development company in Karachi, Pakistan. Expert Azure AI, machine learning, document AI/OCR, computer vision, and custom software development for clients in USA, Canada, UK, Middle East. 100+ projects delivered.';
 
 const canonical = 'https://verixaservices.com/';
 
@@ -14,12 +15,36 @@ const jsonLd = {
       '@type': 'Organization',
       '@id': 'https://verixaservices.com/#organization',
       name: 'Verixa Services',
+      alternateName: 'Verixa',
       url: 'https://verixaservices.com/',
-      logo: 'https://verixaservices.com/logo.jpeg',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://verixaservices.com/logo.jpeg',
+        width: 512,
+        height: 512
+      },
       email: 'sales@verixaservices.com',
       description:
         'AI-powered technology solutions and custom software development. Based in Karachi, Pakistan serving clients in USA, Canada, UK, and the Middle East.',
-      areaServed: ['PK', 'US', 'CA', 'GB', 'AE', 'SA', 'QA', 'OM', 'KW', 'BH'],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Karachi',
+        addressRegion: 'Sindh',
+        addressCountry: 'PK'
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 24.8607,
+        longitude: 67.0011
+      },
+      areaServed: [
+        { '@type': 'Country', name: 'Pakistan' },
+        { '@type': 'Country', name: 'United States' },
+        { '@type': 'Country', name: 'Canada' },
+        { '@type': 'Country', name: 'United Kingdom' },
+        { '@type': 'Country', name: 'United Arab Emirates' },
+        { '@type': 'Country', name: 'Saudi Arabia' }
+      ],
       knowsAbout: [
         'AI development',
         'Machine learning',
@@ -31,17 +56,138 @@ const jsonLd = {
         'Computer vision',
         'Custom software development',
         'Mobile app development'
-      ]
+      ],
+      founder: {
+        '@type': 'Person',
+        name: 'Verixa Services Team'
+      },
+      foundingDate: '2019',
+      numberOfEmployees: {
+        '@type': 'QuantitativeValue',
+        value: 20
+      }
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': 'https://verixaservices.com/#localbusiness',
+      name: 'Verixa Services',
+      image: 'https://verixaservices.com/logo.jpeg',
+      '@id': 'https://verixaservices.com/',
+      url: 'https://verixaservices.com/',
+      telephone: '+92-XXX-XXXXXXX',
+      priceRange: '$$',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Karachi',
+        addressRegion: 'Sindh',
+        addressCountry: 'Pakistan'
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 24.8607,
+        longitude: 67.0011
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '18:00'
+        }
+      ],
+      sameAs: ['https://www.linkedin.com/company/verixa-services']
     },
     {
       '@type': 'WebSite',
       '@id': 'https://verixaservices.com/#website',
       url: 'https://verixaservices.com/',
       name: 'Verixa Services',
-      publisher: { '@id': 'https://verixaservices.com/#organization' }
+      publisher: { '@id': 'https://verixaservices.com/#organization' },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://verixaservices.com/?s={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://verixaservices.com/#ai-development',
+      serviceType: 'AI Development',
+      provider: { '@id': 'https://verixaservices.com/#organization' },
+      areaServed: ['PK', 'US', 'CA', 'GB', 'AE', 'SA'],
+      description: 'Custom AI and machine learning solutions including Azure AI, GPT integration, and LLM development'
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://verixaservices.com/#document-ai',
+      serviceType: 'Document AI and OCR',
+      provider: { '@id': 'https://verixaservices.com/#organization' },
+      areaServed: ['PK', 'US', 'CA', 'GB', 'AE', 'SA'],
+      description: 'Intelligent document processing with OCR, data extraction, and validation automation'
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://verixaservices.com/#computer-vision',
+      serviceType: 'Computer Vision Solutions',
+      provider: { '@id': 'https://verixaservices.com/#organization' },
+      areaServed: ['PK', 'US', 'CA', 'GB', 'AE', 'SA'],
+      description: 'Object detection, image recognition, visual search, and video analytics solutions'
     }
   ]
 };
+
+const faqItems = [
+  {
+    question: 'What AI development services do you offer?',
+    answer:
+      'We offer comprehensive AI development services including Azure AI implementation, custom machine learning model development, GPT and LLM integration, document AI and OCR, computer vision solutions, and AI-powered automation. We work with businesses across USA, Canada, UK, Middle East, and Pakistan to build production-ready AI systems.'
+  },
+  {
+    question: 'Where is Verixa Services located?',
+    answer:
+      'Verixa Services is headquartered in Karachi, Pakistan. We serve clients globally including the United States, Canada, United Kingdom, United Arab Emirates, Saudi Arabia, and throughout the Middle East with remote collaboration and on-site support options.'
+  },
+  {
+    question: 'How much does AI development cost?',
+    answer:
+      'AI development costs vary based on project complexity, scope, and requirements. Simple AI integrations start from $5,000, while comprehensive custom AI solutions range from $20,000 to $100,000+. We provide detailed estimates after understanding your specific needs during a free consultation.'
+  },
+  {
+    question: 'How long does an AI project take to complete?',
+    answer:
+      'Project timelines depend on complexity. Basic AI integrations take 2-4 weeks, medium-complexity projects (document AI, computer vision) take 6-12 weeks, and enterprise-scale AI solutions take 3-6 months. We follow agile methodology with regular deliverables and iterations.'
+  },
+  {
+    question: 'Do you work with Azure AI and Microsoft technologies?',
+    answer:
+      'Yes, we are experts in Azure AI services including Azure Machine Learning, Cognitive Services, Azure OpenAI Service, Form Recognizer, Computer Vision, and more. We help businesses leverage Microsoft Azure cloud infrastructure for scalable, secure AI deployments.'
+  },
+  {
+    question: 'Can you integrate AI into our existing software?',
+    answer:
+      'Absolutely! We specialize in integrating AI capabilities into existing systems. Whether you need to add OCR to your document management system, implement chatbots in your customer service platform, or enhance your app with computer vision, we can seamlessly integrate AI into your current technology stack.'
+  },
+  {
+    question: 'What industries do you serve?',
+    answer:
+      'We serve diverse industries including healthcare, finance, e-commerce, logistics, education, real estate, manufacturing, and government sectors. Our AI solutions are tailored to specific industry challenges including compliance, security, and domain-specific requirements.'
+  },
+  {
+    question: 'Do you provide ongoing support and maintenance?',
+    answer:
+      'Yes, we offer comprehensive support and maintenance packages including 24/7 monitoring, performance optimization, model retraining, security updates, and continuous improvements. Our support ensures your AI systems remain accurate, secure, and efficient.'
+  },
+  {
+    question: 'What makes Verixa Services different from other AI companies?',
+    answer:
+      'We combine deep technical expertise in Azure AI and machine learning with practical business understanding. Our team delivers production-ready, scalable solutions—not just prototypes. We focus on measurable ROI, security best practices, and long-term partnership with clients across USA, Canada, UK, and Middle East.'
+  },
+  {
+    question: 'How do I get started with an AI project?',
+    answer:
+      'Getting started is easy! Contact us through our website form, email sales@verixaservices.com, or connect on LinkedIn. We will schedule a free consultation to understand your needs, provide expert recommendations, and create a detailed proposal with timelines and costs.'
+  }
+];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
@@ -62,14 +208,13 @@ const jsonLd = {
         <div class="reveal">
           <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/15">
             <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
-            AI-powered software house
+            Leading AI Development Company in Pakistan
           </div>
           <h1 class="mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            AI-Powered Technology Solutions
+            AI Development Company in Karachi, Pakistan
           </h1>
           <p class="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
-            Verixa Services delivers cutting-edge AI and software solutions that help businesses excel in the digital era.
-            From Azure AI integration to custom model training, we transform your vision into intelligent reality.
+            Verixa Services is a premier AI development company based in Karachi, Pakistan, delivering cutting-edge artificial intelligence, Azure AI, machine learning, and custom software solutions to clients across USA, Canada, UK, Middle East, and beyond. We transform your business vision into intelligent, scalable reality with 100+ successful projects delivered.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a class="btn-primary" href="#contact">Transform Your Business</a>
@@ -104,7 +249,7 @@ const jsonLd = {
                 <source srcset="/images/stock/hero.webp" type="image/webp" />
                 <img
                   src="/images/stock/hero.jpg"
-                  alt="Laptop and code on screen"
+                  alt="AI development company Karachi Pakistan - Verixa Services delivering machine learning and Azure AI solutions"
                   class="h-full w-full object-cover opacity-85"
                   loading="eager"
                 />
@@ -231,6 +376,250 @@ const jsonLd = {
             <div class="mt-4 text-sm font-bold text-brand-700">Learn more →</div>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="why-choose" class="container-page py-16 sm:py-20">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal text-center">
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+          Why Choose Verixa Services for AI Development?
+        </h2>
+        <p class="mx-auto mt-4 max-w-3xl text-slate-600">
+          As a leading AI development company in Karachi, Pakistan, we combine global expertise with local presence to deliver world-class artificial intelligence and software solutions.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {[
+          {
+            title: 'Proven AI Expertise',
+            text: '100+ successful AI projects delivered across machine learning, Azure AI, document AI, and computer vision. Our team holds certifications in Azure AI, AWS ML, and advanced AI technologies.',
+            icon: '🎯'
+          },
+          {
+            title: 'Global Client Base',
+            text: 'Trusted by 50+ clients across USA, Canada, UK, UAE, Saudi Arabia, and Middle East. We understand international standards, compliance requirements, and diverse business needs.',
+            icon: '🌍'
+          },
+          {
+            title: 'Azure AI Specialists',
+            text: 'Deep expertise in Microsoft Azure AI services including Azure ML, Cognitive Services, OpenAI, Form Recognizer, and Computer Vision. We build scalable, cloud-native AI solutions.',
+            icon: '☁️'
+          },
+          {
+            title: 'Production-Ready Solutions',
+            text: 'We deliver production-grade AI systems, not just prototypes. Every solution includes security hardening, monitoring, documentation, and deployment automation.',
+            icon: '⚡'
+          },
+          {
+            title: 'Transparent Communication',
+            text: 'Clear project timelines, regular updates, and real-time collaboration. We work across time zones with flexible scheduling to match your business hours.',
+            icon: '💬'
+          },
+          {
+            title: 'Cost-Effective Excellence',
+            text: 'Competitive pricing without compromising quality. Based in Pakistan, we offer 40-60% cost savings compared to US/UK rates while maintaining international quality standards.',
+            icon: '💰'
+          },
+          {
+            title: 'Full-Stack AI Capabilities',
+            text: 'End-to-end AI development from data engineering and model training to deployment and monitoring. We handle the complete AI lifecycle.',
+            icon: '🔧'
+          },
+          {
+            title: 'Industry Compliance',
+            text: 'Experience with HIPAA, GDPR, SOC 2, and other compliance frameworks. We build AI solutions that meet regulatory requirements for healthcare, finance, and government.',
+            icon: '🔒'
+          },
+          {
+            title: 'Ongoing Support & Maintenance',
+            text: '24/7 support, continuous model optimization, and long-term partnership. We ensure your AI systems stay accurate, secure, and performant.',
+            icon: '🛠️'
+          }
+        ].map((item) => (
+          <div class="reveal rounded-2xl border border-slate-200 bg-slate-50 p-6 transition hover:border-brand-200 hover:bg-white hover:shadow-soft">
+            <div class="text-3xl" aria-hidden="true">{item.icon}</div>
+            <div class="mt-4 text-lg font-extrabold text-slate-900">{item.title}</div>
+            <div class="mt-2 text-sm text-slate-600">{item.text}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="container-page py-16 sm:py-20">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal text-center">
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+          Our AI Development Process
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-600">
+          A proven methodology that delivers AI solutions on time, on budget, and with measurable business impact.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 lg:grid-cols-2">
+        {[
+          {
+            step: '01',
+            title: 'Discovery & Strategy',
+            description:
+              'We begin with in-depth consultation to understand your business challenges, data landscape, and objectives. Our team conducts feasibility analysis, defines success metrics, and creates a detailed AI roadmap.',
+            deliverables: ['Requirements documentation', 'Technical architecture', 'Project timeline', 'Cost estimate']
+          },
+          {
+            step: '02',
+            title: 'Data Engineering & Preparation',
+            description:
+              'Quality AI starts with quality data. We assess your data sources, design data pipelines, perform cleaning and preprocessing, and ensure data security and compliance throughout the process.',
+            deliverables: ['Data pipeline architecture', 'ETL workflows', 'Data quality reports', 'Security protocols']
+          },
+          {
+            step: '03',
+            title: 'AI Model Development',
+            description:
+              'Our ML engineers develop, train, and optimize AI models using state-of-the-art techniques. We leverage Azure AI, TensorFlow, PyTorch, and custom algorithms tailored to your specific use case.',
+            deliverables: ['Trained AI models', 'Performance metrics', 'Model documentation', 'Testing reports']
+          },
+          {
+            step: '04',
+            title: 'Integration & Deployment',
+            description:
+              'We integrate AI models into your existing systems or build new applications. Our deployment includes containerization, CI/CD pipelines, monitoring setup, and scalability optimization.',
+            deliverables: ['Deployed solution', 'API documentation', 'User training', 'Monitoring dashboards']
+          },
+          {
+            step: '05',
+            title: 'Testing & Quality Assurance',
+            description:
+              'Comprehensive testing ensures accuracy, performance, and reliability. We conduct unit testing, integration testing, stress testing, and user acceptance testing before production release.',
+            deliverables: ['Test reports', 'Performance benchmarks', 'Security audit', 'UAT sign-off']
+          },
+          {
+            step: '06',
+            title: 'Support & Continuous Improvement',
+            description:
+              'Post-launch, we provide ongoing monitoring, model retraining, performance optimization, and feature enhancements. Our support ensures your AI systems evolve with your business needs.',
+            deliverables: ['24/7 support', 'Monthly reports', 'Model updates', 'Feature releases']
+          }
+        ].map((phase) => (
+          <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+            <div class="flex items-start gap-4">
+              <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-2xl font-extrabold text-brand-700 ring-1 ring-brand-100">
+                {phase.step}
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-extrabold text-slate-900">{phase.title}</h3>
+                <p class="mt-2 text-slate-600">{phase.description}</p>
+                <div class="mt-4">
+                  <div class="text-sm font-bold text-slate-700">Deliverables:</div>
+                  <ul class="mt-2 grid gap-1 text-sm text-slate-600">
+                    {phase.deliverables.map((item) => (
+                      <li class="flex items-center gap-2">
+                        <span class="text-brand-600">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" class="container-page py-16 sm:py-20">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal text-center">
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+          Industries We Serve
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-600">
+          Our AI expertise spans across diverse sectors, delivering tailored solutions for unique industry challenges.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          {
+            industry: 'Healthcare & Medical',
+            description: 'Medical image analysis, diagnosis assistance, patient data processing, healthcare chatbots, HIPAA-compliant AI solutions.',
+            keywords: 'Medical AI, Healthcare ML, HIPAA compliance'
+          },
+          {
+            industry: 'Finance & Banking',
+            description: 'Fraud detection, risk assessment, algorithmic trading, document processing, KYC automation, regulatory compliance.',
+            keywords: 'FinTech AI, Financial ML, Compliance'
+          },
+          {
+            industry: 'E-commerce & Retail',
+            description: 'Product recommendations, visual search, inventory optimization, demand forecasting, customer behavior analysis.',
+            keywords: 'Retail AI, Recommendation systems'
+          },
+          {
+            industry: 'Logistics & Supply Chain',
+            description: 'Route optimization, demand prediction, warehouse automation, shipment tracking, inventory management.',
+            keywords: 'Supply chain AI, Logistics optimization'
+          },
+          {
+            industry: 'Real Estate & PropTech',
+            description: 'Property valuation, document processing, tenant screening, market analysis, virtual tours, chatbots.',
+            keywords: 'PropTech AI, Real estate ML'
+          },
+          {
+            industry: 'Education & E-Learning',
+            description: 'Personalized learning, automated grading, content recommendations, plagiarism detection, student performance prediction.',
+            keywords: 'EdTech AI, Learning analytics'
+          },
+          {
+            industry: 'Manufacturing & Industry',
+            description: 'Quality control, predictive maintenance, defect detection, process optimization, supply chain management.',
+            keywords: 'Industrial AI, Manufacturing ML'
+          },
+          {
+            industry: 'Legal & Compliance',
+            description: 'Contract analysis, legal document processing, case research, compliance monitoring, risk assessment.',
+            keywords: 'Legal AI, LegalTech solutions'
+          },
+          {
+            industry: 'Government & Public Sector',
+            description: 'Citizen services automation, document processing, fraud detection, resource optimization, data analytics.',
+            keywords: 'GovTech AI, Public sector solutions'
+          }
+        ].map((industry) => (
+          <div class="reveal rounded-2xl border border-slate-200 bg-slate-50 p-6 transition hover:border-brand-200 hover:bg-white hover:shadow-soft">
+            <div class="text-lg font-extrabold text-slate-900">{industry.industry}</div>
+            <p class="mt-2 text-sm text-slate-600">{industry.description}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {industry.keywords.split(', ').map((keyword) => (
+                <span class="rounded-lg bg-brand-50 px-2 py-1 text-xs font-semibold text-brand-700">
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal mt-10 text-center">
+        <p class="text-slate-600">
+          Don't see your industry? We work with businesses across all sectors.
+        </p>
+        <a href="#contact" class="btn-primary mt-4 inline-flex">
+          Discuss Your Industry Needs
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-16 sm:py-20">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal">
+        <FAQ items={faqItems} />
       </div>
     </div>
   </section>

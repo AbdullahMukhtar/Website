@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = 'AI Development Company in Karachi | Machine Learning & Azure AI Services';
+const description =
+  'Leading AI development company in Karachi, Pakistan. Expert machine learning, Azure AI, document processing, computer vision, and custom AI solutions. 100+ projects delivered. Contact us today!';
+
+const canonical = 'https://verixaservices.com/karachi-ai-development.html';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Verixa Services - AI Development Karachi',
+  description: 'Premier AI development company in Karachi offering machine learning, Azure AI, and custom AI solutions',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Karachi',
+    addressRegion: 'Sindh',
+    addressCountry: 'Pakistan'
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 24.8607,
+    longitude: 67.0011
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Karachi'
+  }
+};
+
+const breadcrumbs = [{ label: 'AI Development in Karachi', href: '/karachi-ai-development.html' }];
+
+const faqItems = [
+  {
+    question: 'Why choose an AI development company in Karachi?',
+    answer:
+      'Karachi-based AI companies like Verixa Services offer world-class expertise at competitive rates, 40-60% cost savings compared to US/UK, English proficiency, international experience, and understanding of global business practices. Karachi has a growing tech ecosystem with talented AI engineers and data scientists.'
+  },
+  {
+    question: 'What AI services are available in Karachi?',
+    answer:
+      'Karachi AI companies offer comprehensive services including Azure AI implementation, machine learning model development, document AI and OCR, computer vision, natural language processing, chatbot development, predictive analytics, and custom AI solutions for various industries.'
+  },
+  {
+    question: 'How much does AI development cost in Karachi?',
+    answer:
+      'AI development costs in Karachi are significantly lower than Western countries while maintaining quality. Projects range from $5,000 for simple AI integrations to $20,000-$100,000+ for complex enterprise solutions. Contact us for a detailed estimate based on your requirements.'
+  },
+  {
+    question: 'Can Karachi-based AI companies work with international clients?',
+    answer:
+      'Absolutely! Verixa Services and other top Karachi AI companies regularly work with clients in USA, Canada, UK, Middle East, and worldwide. We offer flexible time zone coverage, English communication, international payment options, and adherence to global standards and compliance requirements.'
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="container-page py-12">
+    <Breadcrumbs items={breadcrumbs} />
+  </section>
+
+  <section class="container-page pb-16">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal">
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+          AI Development Company in Karachi, Pakistan
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-600">
+          Verixa Services is Karachi's leading AI development company, specializing in cutting-edge artificial intelligence,
+          machine learning, Azure AI, and custom AI solutions. Based in the heart of Karachi, we serve local businesses and
+          international clients across USA, Canada, UK, and Middle East with world-class AI technology at competitive prices.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 lg:grid-cols-2">
+        <div class="reveal">
+          <h2 class="text-3xl font-extrabold text-slate-900">Why Choose Verixa Services in Karachi?</h2>
+          <p class="mt-4 text-slate-600">
+            As Karachi's premier AI development firm, we combine local presence with global expertise. Our team of AI engineers
+            and data scientists delivers production-ready solutions that compete internationally.
+          </p>
+
+          <div class="mt-6 space-y-4">
+            {
+              [
+                {
+                  title: 'Karachi-Based, Globally Experienced',
+                  description:
+                    'Located in Karachi with experience serving 50+ international clients. We understand both local and global business needs.'
+                },
+                {
+                  title: 'Cost-Effective AI Solutions',
+                  description:
+                    '40-60% lower costs than US/UK AI companies while maintaining international quality standards and best practices.'
+                },
+                {
+                  title: '100+ Successful AI Projects',
+                  description:
+                    'Proven track record delivering AI projects across healthcare, finance, e-commerce, logistics, and government sectors.'
+                },
+                {
+                  title: 'Local Support & Understanding',
+                  description:
+                    'Understanding of Pakistan business environment, local regulations, and cultural context for better solutions.'
+                }
+              ].map((item) => (
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <div class="text-lg font-extrabold text-slate-900">{item.title}</div>
+                  <p class="mt-2 text-sm text-slate-600">{item.description}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="rounded-2xl border border-brand-200 bg-brand-50 p-8">
+            <h3 class="text-2xl font-extrabold text-slate-900">AI Services in Karachi</h3>
+            <p class="mt-4 text-slate-600">
+              Comprehensive AI development services available in Karachi for businesses of all sizes:
+            </p>
+
+            <ul class="mt-6 space-y-3">
+              {
+                [
+                  'Azure AI & Microsoft AI Services',
+                  'Machine Learning Model Development',
+                  'Document AI & OCR Solutions',
+                  'Computer Vision & Image Recognition',
+                  'Natural Language Processing',
+                  'Chatbots & Virtual Assistants',
+                  'Predictive Analytics',
+                  'Custom AI Application Development',
+                  'AI Integration & Deployment',
+                  'AI Consulting & Strategy'
+                ].map((service) => (
+                  <li class="flex items-center gap-3 text-slate-700">
+                    <span class="text-brand-600">✓</span>
+                    <span class="font-semibold">{service}</span>
+                  </li>
+                ))
+              }
+            </ul>
+
+            <a href="/#contact" class="btn-primary mt-8 w-full text-center">
+              Get Free Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal">
+        <h2 class="text-3xl font-extrabold text-slate-900">AI Development Expertise in Karachi</h2>
+        <p class="mt-4 text-slate-600">
+          Our Karachi-based team brings deep technical expertise and practical experience across AI technologies and industries.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          [
+            {
+              industry: 'Healthcare AI Solutions',
+              description:
+                'Medical image analysis, patient data processing, diagnosis assistance, healthcare chatbots, and HIPAA-compliant AI for Karachi hospitals and clinics.',
+              icon: '🏥'
+            },
+            {
+              industry: 'Financial AI Services',
+              description:
+                'Fraud detection, risk assessment, credit scoring, document processing, and regulatory compliance AI for Pakistani banks and FinTech companies.',
+              icon: '💰'
+            },
+            {
+              industry: 'E-commerce AI',
+              description:
+                'Product recommendations, visual search, inventory optimization, demand forecasting for Karachi online retailers and marketplaces.',
+              icon: '🛒'
+            },
+            {
+              industry: 'Manufacturing AI',
+              description:
+                'Quality control, defect detection, predictive maintenance, process optimization for Karachi industrial and manufacturing sector.',
+              icon: '🏭'
+            },
+            {
+              industry: 'Logistics AI',
+              description:
+                'Route optimization, demand prediction, warehouse automation, shipment tracking for Karachi logistics and transportation companies.',
+              icon: '🚚'
+            },
+            {
+              industry: 'Real Estate AI',
+              description:
+                'Property valuation, document processing, market analysis, tenant screening for Karachi real estate and PropTech firms.',
+              icon: '🏘️'
+            }
+          ].map((item) => (
+            <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-brand-200 hover:shadow-soft">
+              <div class="text-3xl" aria-hidden="true">
+                {item.icon}
+              </div>
+              <h3 class="mt-4 text-lg font-extrabold text-slate-900">{item.industry}</h3>
+              <p class="mt-2 text-sm text-slate-600">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal">
+        <h2 class="text-3xl font-extrabold text-slate-900">Karachi's Growing AI Ecosystem</h2>
+        <p class="mt-4 text-slate-600">
+          Karachi is rapidly emerging as a hub for AI and technology innovation in Pakistan and South Asia. The city offers:
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          [
+            {
+              metric: '500K+',
+              label: 'Tech Professionals',
+              description: 'Large pool of software engineers and AI specialists in Karachi'
+            },
+            {
+              metric: '1000+',
+              label: 'Tech Companies',
+              description: 'Growing number of software houses and AI startups in the city'
+            },
+            {
+              metric: '40-60%',
+              label: 'Cost Savings',
+              description: 'Competitive pricing compared to Western AI development costs'
+            },
+            {
+              metric: '24/7',
+              label: 'Time Zone Coverage',
+              description: 'Flexible scheduling for international clients across time zones'
+            }
+          ].map((stat) => (
+            <div class="reveal rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
+              <div class="text-3xl font-extrabold text-brand-700">{stat.metric}</div>
+              <div class="mt-2 text-sm font-bold text-slate-900">{stat.label}</div>
+              <p class="mt-2 text-xs text-slate-600">{stat.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="card p-8 sm:p-10">
+      <FAQ items={faqItems} title="Frequently Asked Questions About AI Development in Karachi" />
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="card bg-gradient-to-r from-brand-600 to-brand-700 p-8 text-white sm:p-12">
+      <div class="reveal text-center">
+        <h2 class="text-3xl font-extrabold sm:text-4xl">Ready to Start Your AI Project in Karachi?</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-white/90">
+          Partner with Karachi's leading AI development company. Get a free consultation and discover how we can transform your
+          business with intelligent AI solutions.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="/#contact"
+            class="rounded-2xl bg-white px-6 py-3 font-bold text-brand-700 no-underline transition hover:bg-slate-50"
+          >
+            Contact Us Today
+          </a>
+          <a
+            href="/portfolio.html"
+            class="rounded-2xl border-2 border-white bg-transparent px-6 py-3 font-bold text-white no-underline transition hover:bg-white/10"
+          >
+            View Our Work
+          </a>
+        </div>
+        <p class="mt-6 text-sm text-white/80">
+          📍 Located in Karachi | 📞 Contact: sales@verixaservices.com | 🌐 Serving Worldwide
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+

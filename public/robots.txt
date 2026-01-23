@@ -1,5 +1,14 @@
 User-agent: *
 Allow: /
+Crawl-delay: 0
 
+# Sitemaps
 Sitemap: https://verixaservices.com/sitemap.xml
+
+# Block common bad bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
 

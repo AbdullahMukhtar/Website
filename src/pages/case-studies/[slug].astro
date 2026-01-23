@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { caseStudies, getAllSlugs, getCaseStudyBySlug } from '../../data/case-studies';
+
+export function getStaticPaths() {
+  return getAllSlugs().map((slug) => ({
+    params: { slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const study = getCaseStudyBySlug(slug);
+
+if (!study) {
+  return Astro.redirect('/404');
+}
+
+const title = `${study.title} | Case Study | Verixa Services`;
+const description = study.summary;
+const canonical = `https://verixaservices.com/case-studies/${slug}.html`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: study.title,
+  description: study.summary,
+  datePublished: study.publishedDate,
+  author: {
+    '@type': 'Organization',
+    name: 'Verixa Services',
+    url: 'https://verixaservices.com/'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Verixa Services',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://verixaservices.com/logo.jpeg'
+    }
+  },
+  about: {
+    '@type': 'Project',
+    name: study.title,
+    description: study.summary
+  }
+};
+
+const breadcrumbs = [
+  { label: 'Portfolio', href: '/portfolio.html' },
+  { label: study.title, href: `/case-studies/${slug}.html` }
+];
+
+const relatedStudies = caseStudies
+  .filter((cs) => cs.slug !== slug && (cs.industry === study.industry || cs.tags.some((tag) => study.tags.includes(tag))))
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  jsonLd={jsonLd}
+  ogType="article"
+  publishedTime={study.publishedDate}
+>
+  <section class="container-page py-12">
+    <Breadcrumbs items={breadcrumbs} />
+  </section>
+
+  <article class="container-page pb-16">
+    <div class="card p-8 sm:p-10">
+      <div class="reveal">
+        {
+          study.featured && (
+            <div class="mb-4 inline-flex items-center gap-2 rounded-lg bg-brand-50 px-3 py-1.5 text-sm font-bold text-brand-700 ring-1 ring-brand-100">
+              <span>⭐</span>
+              Featured Case Study
+            </div>
+          )
+        }
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">{study.title}</h1>
+
+        <div class="mt-6 flex flex-wrap gap-4 text-sm">
+          <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2">
+            <span class="font-semibold text-slate-700">Client:</span>
+            <span class="text-slate-600">{study.client}</span>
+          </div>
+          <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2">
+            <span class="font-semibold text-slate-700">Industry:</span>
+            <span class="text-slate-600">{study.industry}</span>
+          </div>
+          <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2">
+            <span class="font-semibold text-slate-700">Duration:</span>
+            <span class="text-slate-600">{study.duration}</span>
+          </div>
+          <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2">
+            <span class="font-semibold text-slate-700">Team Size:</span>
+            <span class="text-slate-600">{study.teamSize}</span>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          {study.tags.map((tag) => <span class="rounded-lg bg-brand-50 px-3 py-1.5 text-sm font-semibold text-brand-700">{tag}</span>)}
+        </div>
+      </div>
+
+      <div class="mt-12 grid gap-10 lg:grid-cols-3">
+        <div class="lg:col-span-2 space-y-10">
+          <section class="reveal">
+            <h2 class="text-2xl font-extrabold text-slate-900">Project Overview</h2>
+            <p class="mt-4 text-lg leading-relaxed text-slate-600">{study.summary}</p>
+          </section>
+
+          <section class="reveal">
+            <h2 class="text-2xl font-extrabold text-slate-900">The Challenge</h2>
+            <div class="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+              <p class="text-slate-700">{study.challenge}</p>
+            </div>
+          </section>
+
+          <section class="reveal">
+            <h2 class="text-2xl font-extrabold text-slate-900">Our Solution</h2>
+            <div class="mt-4 rounded-2xl border border-brand-200 bg-brand-50 p-6">
+              <p class="text-slate-700">{study.solution}</p>
+            </div>
+          </section>
+
+          <section class="reveal">
+            <h2 class="text-2xl font-extrabold text-slate-900">Results & Impact</h2>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              {
+                study.results.map((result) => (
+                  <div class="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+                    <div class="flex items-start gap-3">
+                      <span class="text-2xl text-emerald-600">✓</span>
+                      <p class="text-slate-700 font-semibold">{result}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </section>
+        </div>
+
+        <aside class="space-y-6">
+          <div class="reveal sticky top-24 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="text-lg font-extrabold text-slate-900">Technologies Used</h3>
+            <ul class="mt-4 space-y-2">
+              {
+                study.technologies.map((tech) => (
+                  <li class="flex items-center gap-2 text-sm text-slate-600">
+                    <span class="text-brand-600">•</span>
+                    {tech}
+                  </li>
+                ))
+              }
+            </ul>
+
+            <div class="mt-8 rounded-xl border border-brand-200 bg-brand-50 p-4">
+              <div class="text-sm font-bold text-brand-900">Need Similar Results?</div>
+              <p class="mt-2 text-sm text-brand-800">Let's discuss how we can help your business with AI solutions.</p>
+              <a href="/#contact" class="btn-primary mt-4 w-full text-center">
+                Get Free Consultation
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  {
+    relatedStudies.length > 0 && (
+      <section class="container-page py-16">
+        <div class="card p-8 sm:p-10">
+          <div class="reveal">
+            <h2 class="text-3xl font-extrabold text-slate-900">Related Case Studies</h2>
+          </div>
+
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            {relatedStudies.map((related) => (
+              <a
+                href={`/case-studies/${related.slug}.html`}
+                class="reveal group block rounded-2xl border border-slate-200 bg-white p-6 no-underline transition hover:border-brand-200 hover:shadow-soft"
+              >
+                <h3 class="text-lg font-extrabold text-slate-900 transition group-hover:text-brand-700">{related.title}</h3>
+                <div class="mt-2 text-sm text-slate-600">{related.industry}</div>
+                <p class="mt-3 line-clamp-3 text-sm text-slate-600">{related.summary}</p>
+                <div class="mt-4 text-sm font-bold text-brand-700 transition group-hover:gap-2">Read More →</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
+
+
